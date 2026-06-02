@@ -117,5 +117,24 @@ loadSong(currentSong);
 
 // For iframe navigation (persistent music)
 function loadPage(page) {
-    document.getElementById("contentFrame").src = page;
+    const frame = document.getElementById("contentFrame");
+
+    // Fade OUT
+    frame.classList.add("fade-out");
+
+    setTimeout(() => {
+        // Change the page after fade-out
+        frame.src = page;
+
+        // Fade IN after the new page loads
+        frame.onload = () => {
+            frame.classList.remove("fade-out");
+            frame.classList.add("fade-in");
+
+            // Remove fade-in class after animation
+            setTimeout(() => {
+                frame.classList.remove("fade-in");
+            }, 400);
+        };
+    }, 400); // match fade-out duration
 }

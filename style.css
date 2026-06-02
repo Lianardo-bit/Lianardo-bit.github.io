@@ -419,3 +419,14 @@ h1 {
     from { background-position: 0 0; }
     to { background-position: 400px 0; }
 }
+
+/* Fade animation for iframe content */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}

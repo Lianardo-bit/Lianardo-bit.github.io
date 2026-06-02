@@ -22,21 +22,22 @@
             <h2>Examples:</h2>
         </section>
 
+        <!-- CLICKABLE THUMBNAILS -->
         <div class="gallery">
 
-            <div class="card">
+            <div class="card" onclick="openGallery(0)">
                 <img src="assets/model1.jpg" alt="">
                 <p>Stylised Prop</p>
                 <p>£20 - £50</p>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="openGallery(1)">
                 <img src="assets/model2.jpg" alt="">
                 <p>Chibi Character</p>
                 <p>£30 - £60</p>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="openGallery(2)">
                 <img src="assets/Environment1.png" alt="">
                 <p>Environment Model</p>
                 <p>£50 - £100</p>
@@ -46,6 +47,46 @@
 
     </div>
 
-    <script src="script.js"></script>
+    <!-- OVERLAY SLIDESHOW -->
+    <div id="overlay" class="overlay hidden">
+        <span id="closeOverlay" class="close-btn">×</span>
+
+        <img id="overlayImage" class="overlay-image">
+
+        <div class="nav-btn left" id="prevImg">⟵</div>
+        <div class="nav-btn right" id="nextImg">⟶</div>
+    </div>
+
+    <script>
+        /* --- IMAGE LIST FOR THIS PAGE ONLY --- */
+        let images = [
+            "assets/model1.jpg",
+            "assets/model2.jpg",
+            "assets/Environment1.png"
+        ];
+
+        let currentIndex = 0;
+
+        function openGallery(index) {
+            currentIndex = index;
+            document.getElementById("overlayImage").src = images[currentIndex];
+            document.getElementById("overlay").classList.remove("hidden");
+        }
+
+        document.getElementById("closeOverlay").onclick = () => {
+            document.getElementById("overlay").classList.add("hidden");
+        };
+
+        document.getElementById("prevImg").onclick = () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("overlayImage").src = images[currentIndex];
+        };
+
+        document.getElementById("nextImg").onclick = () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("overlayImage").src = images[currentIndex];
+        };
+    </script>
+
 </body>
 </html>

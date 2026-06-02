@@ -90,6 +90,7 @@ nav a {
     border-radius: 10px;
     box-shadow: 3px 3px 0 #e3cfc2;
     transition: transform 0.2s ease;
+     cursor: pointer;
 }
 
 .card:hover {
@@ -429,4 +430,70 @@ h1 {
 .fade-in {
     opacity: 1;
     transition: opacity 0.4s ease;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.overlay-image {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    left: 40px;   /* moved from right → left */
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+}
+
+.nav-btn.left { left: 40px; }
+.nav-btn.right { right: 40px; }
+
+.gallery-btn {
+    background: #ffb6d9;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-family: 'Kalam', cursive;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.gallery-btn:hover {
+    transform: scale(1.05);
 }

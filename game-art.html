@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Game Art -Lia's Portfolio</title>
+    <title>Game Art - Lia's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
@@ -22,19 +22,20 @@
             <h2>Examples:</h2>
         </section>
 
+        <!-- CLICKABLE THUMBNAILS -->
         <div class="gallery">
 
-            <div class="card">
+            <div class="card" onclick="openGallery(0)">
                 <img src="assets/ui1.jpg" alt="">
                 <p>UI Mockup</p>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="openGallery(1)">
                 <img src="assets/icon1.jpg" alt="">
                 <p>Item Icons</p>
             </div>
 
-            <div class="card">
+            <div class="card" onclick="openGallery(2)">
                 <img src="assets/asset1.jpg" alt="">
                 <p>Game Asset</p>
             </div>
@@ -43,6 +44,10 @@
 
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- OVERLAY SLIDESHOW -->
+    <div id="overlay" class="overlay hidden">
+        <span id="closeOverlay" class="close-btn">×</span>
+
+        <img id="overlayImage" class="overlay-image">
+
+        <div class="nav-btn left" id="prevImg">⟵</div>

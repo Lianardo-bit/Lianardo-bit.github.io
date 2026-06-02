@@ -48,7 +48,9 @@
     <div id="overlay" class="overlay hidden">
         <span id="closeOverlay" class="close-btn">×</span>
 
+        <!-- BOTH media types (we toggle them) -->
         <img id="overlayImage" class="overlay-image">
+        <video id="overlayVideo" class="overlay-image" controls></video>
 
         <div class="nav-btn left" id="prevImg">⟵</div>
         <div class="nav-btn right" id="nextImg">⟶</div>
@@ -56,7 +58,8 @@
 
     <script>
         /* -----------------------------------------
-           SEPARATE IMAGE SETS FOR EACH EXAMPLE
+           SEPARATE IMAGE/VIDEO SETS FOR EACH EXAMPLE
+           (You can replace these with your real files)
         ------------------------------------------ */
 
         const galleries = {
@@ -80,30 +83,51 @@
         let currentGallery = [];
         let currentIndex = 0;
 
+        /* -----------------------------------------
+           SHOW IMAGE OR VIDEO DEPENDING ON FILE TYPE
+        ------------------------------------------ */
+        function showMedia(src) {
+            const img = document.getElementById("overlayImage");
+            const vid = document.getElementById("overlayVideo");
+
+            if (src.endsWith(".mp4")) {
+                img.style.display = "none";
+                vid.style.display = "block";
+                vid.src = src;
+                vid.play();
+            } else {
+                vid.pause();
+                vid.style.display = "none";
+                img.style.display = "block";
+                img.src = src;
+            }
+        }
+
         /* --- OPEN SLIDESHOW FOR SPECIFIC EXAMPLE --- */
         function openGallery(type, index) {
             currentGallery = galleries[type];
             currentIndex = index;
 
-            document.getElementById("overlayImage").src = currentGallery[currentIndex];
+            showMedia(currentGallery[currentIndex]);
             document.getElementById("overlay").classList.remove("hidden");
         }
 
         /* --- CLOSE SLIDESHOW --- */
         document.getElementById("closeOverlay").onclick = () => {
             document.getElementById("overlay").classList.add("hidden");
+            document.getElementById("overlayVideo").pause();
         };
 
-        /* --- PREVIOUS IMAGE --- */
+        /* --- PREVIOUS IMAGE/VIDEO --- */
         document.getElementById("prevImg").onclick = () => {
             currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-            document.getElementById("overlayImage").src = currentGallery[currentIndex];
+            showMedia(currentGallery[currentIndex]);
         };
 
-        /* --- NEXT IMAGE --- */
+        /* --- NEXT IMAGE/VIDEO --- */
         document.getElementById("nextImg").onclick = () => {
             currentIndex = (currentIndex + 1) % currentGallery.length;
-            document.getElementById("overlayImage").src = currentGallery[currentIndex];
+            showMedia(currentGallery[currentIndex]);
         };
     </script>
 

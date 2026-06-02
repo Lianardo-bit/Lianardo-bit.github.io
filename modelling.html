@@ -22,25 +22,25 @@
             <h2>Examples:</h2>
         </section>
 
-        <!-- CLICKABLE THUMBNAILS -->
+        <!-- EXAMPLE CARDS (each opens its own slideshow) -->
         <div class="gallery">
 
-            <div class="card" onclick="openGallery(0)">
-                <img src="assets/model1.jpg" alt="">
+            <div class="card" onclick="openGallery('prop', 0)">
+                <img src="assets/StylisedProp1.png" alt="">
                 <p>Stylised Prop</p>
                 <p>£20 - £50</p>
             </div>
 
-            <div class="card" onclick="openGallery(1)">
+            <div class="card" onclick="openGallery('chibi', 0)">
                 <img src="assets/model2.jpg" alt="">
                 <p>Chibi Character</p>
                 <p>£30 - £60</p>
             </div>
 
-            <div class="card" onclick="openGallery(2)">
+            <div class="card" onclick="openGallery('env', 0)">
                 <img src="assets/Environment1.png" alt="">
                 <p>Environment Model</p>
-                <p>£50 - £100</p>
+                <p>£150 - £250</p>
             </div>
 
         </div>
@@ -51,40 +51,96 @@
     <div id="overlay" class="overlay hidden">
         <span id="closeOverlay" class="close-btn">×</span>
 
+        <!-- BOTH media types (we toggle them) -->
         <img id="overlayImage" class="overlay-image">
+        <video id="overlayVideo" class="overlay-image" controls></video>
 
         <div class="nav-btn left" id="prevImg">⟵</div>
         <div class="nav-btn right" id="nextImg">⟶</div>
     </div>
 
     <script>
-        /* --- IMAGE LIST FOR THIS PAGE ONLY --- */
-        let images = [
-            "assets/model1.jpg",
-            "assets/model2.jpg",
-            "assets/Environment1.png"
-        ];
+        /* -----------------------------------------
+           SEPARATE IMAGE/VIDEO SETS FOR EACH EXAMPLE
+        ------------------------------------------ */
 
+        const galleries = {
+            prop: [
+                "assets/StylisedProp1.png",
+                "assets/StylisedProp2.png",
+                "assets/StylisedProp3.png",
+                "assets/StylisedProp4.png",
+                "assets/StylisedProp5.png",
+                "assets/StylisedProp6.jpg",
+                "assets/StylisedProp8.jpg",
+                "assets/StylisedProp9.png",
+                "assets/StylisedProp10.png",
+                "assets/StylisedProp11.png",
+                "assets/StylisedProp12.png"
+            ],
+            chibi: [
+                "assets/model2.jpg",
+                "assets/model2b.jpg",
+                "assets/model2c.jpg"
+            ],
+            env: [
+                "assets/Environment1.png",
+                "assets/Environment2.png",
+                "assets/Environment3.png",
+                "assets/Environment4.mp4",
+                "assets/Environment5.png",
+                "assets/Environment6.png"
+            ]
+        };
+
+        let currentGallery = [];
         let currentIndex = 0;
 
-        function openGallery(index) {
+        /* -----------------------------------------
+           SHOW IMAGE OR VIDEO DEPENDING ON FILE TYPE
+        ------------------------------------------ */
+        function showMedia(src) {
+            const img = document.getElementById("overlayImage");
+            const vid = document.getElementById("overlayVideo");
+
+            if (src.endsWith(".mp4")) {
+                img.style.display = "none";
+                vid.style.display = "block";
+                vid.src = src;
+                vid.play();
+            } else {
+                vid.pause();
+                vid.style.display = "none";
+                img.style.display = "block";
+                img.src = src;
+            }
+        }
+
+        /* --- OPEN SLIDESHOW FOR SPECIFIC EXAMPLE --- */
+        function openGallery(type, index) {
+            currentGallery = galleries[type];
             currentIndex = index;
-            document.getElementById("overlayImage").src = images[currentIndex];
+
+            showMedia(currentGallery[currentIndex]);
             document.getElementById("overlay").classList.remove("hidden");
         }
 
+        /* --- CLOSE SLIDESHOW --- */
         document.getElementById("closeOverlay").onclick = () => {
             document.getElementById("overlay").classList.add("hidden");
+            document.getElementById("overlayVideo").pause();
         };
 
+        /* --- PREVIOUS IMAGE/VIDEO --- */
         document.getElementById("prevImg").onclick = () => {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            document.getElementById("overlayImage").src = images[currentIndex];
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            showMedia(currentGallery[currentIndex]);
         };
 
+        /* --- NEXT IMAGE/VIDEO --- */
         document.getElementById("nextImg").onclick = () => {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById("overlayImage").src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            showMedia(currentGallery[currentIndex]);
         };
     </script>
 

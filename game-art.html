@@ -22,22 +22,22 @@
             <h2>Examples:</h2>
         </section>
 
-        <!-- CLICKABLE THUMBNAILS -->
+        <!-- EXAMPLE CARDS (each opens its own slideshow) -->
         <div class="gallery">
 
-            <div class="card" onclick="openGallery(0)">
-                <img src="assets/ui1.jpg" alt="">
-                <p>UI Mockup</p>
+            <div class="card" onclick="openGallery('ui', 0)">
+                <img src="assets/UI1.png" alt="">
+                <p>UI Designs</p>
             </div>
 
-            <div class="card" onclick="openGallery(1)">
-                <img src="assets/icon1.jpg" alt="">
-                <p>Item Icons</p>
+            <div class="card" onclick="openGallery('promotionalart', 0)">
+                <img src="assets/PromotionalArt1.png" alt="">
+                <p>Promotional Art</p>
             </div>
 
-            <div class="card" onclick="openGallery(2)">
-                <img src="assets/asset1.jpg" alt="">
-                <p>Game Asset</p>
+            <div class="card" onclick="openGallery('Logo', 0)">
+                <img src="assets/Logo1.png" alt="">
+                <p>Logo Designs</p>
             </div>
 
         </div>
@@ -48,6 +48,89 @@
     <div id="overlay" class="overlay hidden">
         <span id="closeOverlay" class="close-btn">×</span>
 
+        <!-- BOTH media types (we toggle them) -->
         <img id="overlayImage" class="overlay-image">
+        <video id="overlayVideo" class="overlay-image" controls></video>
 
         <div class="nav-btn left" id="prevImg">⟵</div>
+        <div class="nav-btn right" id="nextImg">⟶</div>
+    </div>
+
+    <script>
+        /* -----------------------------------------
+           SEPARATE IMAGE/VIDEO SETS FOR EACH EXAMPLE
+           (Replace these with your real filenames)
+        ------------------------------------------ */
+
+        const galleries = {
+            ui: [
+                "assets/UI1.png",
+                "assets/UI2.png",
+                "assets/UI3.png"
+            ],
+            promotionalart: [
+                "assets/PromotionalArt1.png",
+                "assets/PromotionalArt2.png",
+                "assets/PromotionalArt3.png"
+            ],
+            Logo: [
+                "assets/Logo1.png",
+                "assets/Logo2.png",
+                "assets/Logo3.png"
+            ]
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        /* -----------------------------------------
+           SHOW IMAGE OR VIDEO DEPENDING ON FILE TYPE
+        ------------------------------------------ */
+        function showMedia(src) {
+            const img = document.getElementById("overlayImage");
+            const vid = document.getElementById("overlayVideo");
+
+            if (src.endsWith(".mp4")) {
+                img.style.display = "none";
+                vid.style.display = "block";
+                vid.src = src;
+                vid.play();
+            } else {
+                vid.pause();
+                vid.style.display = "none";
+                img.style.display = "block";
+                img.src = src;
+            }
+        }
+
+        /* --- OPEN SLIDESHOW FOR SPECIFIC EXAMPLE --- */
+        function openGallery(type, index) {
+            currentGallery = galleries[type];
+            currentIndex = index;
+
+            showMedia(currentGallery[currentIndex]);
+            document.getElementById("overlay").classList.remove("hidden");
+        }
+
+        /* --- CLOSE SLIDESHOW --- */
+        document.getElementById("closeOverlay").onclick = () => {
+            document.getElementById("overlay").classList.add("hidden");
+            document.getElementById("overlayVideo").pause();
+        };
+
+        /* --- PREVIOUS IMAGE/VIDEO --- */
+        document.getElementById("prevImg").onclick = () => {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            showMedia(currentGallery[currentIndex]);
+        };
+
+        /* --- NEXT IMAGE/VIDEO --- */
+        document.getElementById("nextImg").onclick = () => {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            showMedia(currentGallery[currentIndex]);
+        };
+    </script>
+
+</body>
+</html>
+

@@ -1,27 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lia's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
+        <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<div class="page">
 
-    <!-- MUSIC PLAYER stays here forever -->
-    <div class="music-player">
-        <img src="assets/cd.PNG" id="cdImage" class="cd">
-        <button id="prevBtn">⟵</button>
-        <button id="playPauseBtn">▶</button>
-        <button id="nextBtn">⟶</button>
-        <span id="songName">Now Playing: None</span>
-    </div>
+    <header>
+        <h1>My Portfolio...</h1>
+        <p class="tagline">Game Artist • 3D Modeller • Character Designer</p>
+    </header>
 
-    <!-- This iframe loads all your pages -->
-    <iframe id="contentFrame" src="index.html"></iframe>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#payment">Payment</a>
+    </nav>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- ABOUT -->
+    <section id="about" class="section">
+        <h2><span class="fish-icon fish-pink"></span> About Me</h2>
+        <p>
+            Hi! I’m Lia, an indie developer who loves cosy aesthetics, storytelling,
+            and making things that are super cute. This is my portfolio to show what type of services I offer with the price estimate attached.
+            Please contact me with the specific service and your request if you're interested in commissioning me. Thank you!
+        </p>
+    </section>
+
+    <div class="sparkle-divider"></div>
+
+    <!-- SERVICES -->
+    <section id="projects" class="section">
+        <h2><span class="fish-icon fish-orange"></span> Services</h2>
+
+        <div class="gallery">
+
+            <a href="#" onclick="parent.loadPage('character-design.html')" class="card-link">
+                <div class="card">
+                    <img src="assets/sample1.jpg">
+                    <p>Character Design</p>
+                </div>
+            </a>
+
+            <a href="#" onclick="parent.loadPage('modelling.html')" class="card-link">
+                <div class="card">
+                    <img src="assets/sample2.jpg">
+                    <p>3D Modelling</p>
+                </div>
+            </a>
+
+            <a href="#" onclick="parent.loadPage('game-art.html')" class="card-link">
+                <div class="card">
+                    <img src="assets/sample3.jpg">
+                    <p>Game Art</p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <div class="sparkle-divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <h2><span class="fish-icon fish-yellow"></span> Contact</h2>
+
+        <p>
+            This is for any questions or decided requests. Please note that I'll try to reply as soon as I can.
+        </p>
+
+        <p>Email:
+            <a href="mailto:liascotchhh@gmail.com" class="email-link">
+                liascotchhh@gmail.com
+            </a>
+        </p>
+
+        <p>Instagram:
+            <a href="https://instagram.com/lia0_scotch" target="_blank" class="email-link">
+                @lia0_scotch
+            </a>
+        </p>
+    </section>
+
+    <div class="sparkle-divider"></div>
+
+    <!-- PAYMENT -->
+    <section id="payment" class="section">
+        <h2><span class="fish-icon fish-green"></span> Payment Information</h2>
+
+        <p>
+            Payments are handled after we discuss your commission.
+            I accept PayPal or Ko‑fi, but I only share the links once we’ve agreed on the project.
+            A 50% deposit is required at the start, and the remaining 50% is paid upon completion.
+            Note that the more detailed your request is, the higher the price will land on the estimate range. Also currency is GBP (£).
+        </p>
+
+        <div class="payment-boxes">
+
+            <div class="payment-card">
+                <h3>How It Works</h3>
+                <p>Contact me first with your idea and payment amount.</p>
+            </div>
+
+            <div class="payment-card">
+                <h3>Accepted Payment Methods</h3>
+                <p>PayPal & Ko‑fi links will be provided privately once the project is agreed upon.</p>
+            </div>
+
+            <div class="payment-card">
+                <h3>Deposit</h3>
+                <p>50% upfront, 50% on completion</p>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<script src="script.js"></script>

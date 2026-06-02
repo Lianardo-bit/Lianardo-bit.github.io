@@ -138,3 +138,19 @@ function loadPage(page) {
         };
     }, 400); // match fade-out duration
 }
+
+// Preload all media so slides switch instantly
+function preloadGallery(gallery) {
+    gallery.forEach(src => {
+        if (src.endsWith(".mp4")) {
+            const video = document.createElement("video");
+            video.src = src;
+        } else {
+            const img = new Image();
+            img.src = src;
+        }
+    });
+}
+
+// Preload everything on page load
+Object.values(galleries).forEach(preloadGallery);

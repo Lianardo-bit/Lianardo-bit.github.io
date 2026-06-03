@@ -26,13 +26,13 @@
         <div class="gallery">
 
             <div class="card" onclick="openGallery('prop', 0)">
-                <img src="assets/StylisedProp1.png" alt="">
+                <img src="assets/StylisedProp1.jpg" alt="">
                 <p>Stylised Prop</p>
                 <p>£20 - £100</p>
             </div>
 
             <div class="card" onclick="openGallery('env', 0)">
-                <img src="assets/Environment1.png" alt="">
+                <img src="assets/Environment1.jpg" alt="">
                 <p>Environment Model</p>
                 <p>£150 - £250</p>
             </div>
@@ -60,26 +60,26 @@
 
         const galleries = {
             prop: [
-                "assets/StylisedProp1.png",
-                "assets/StylisedProp2.png",
-                "assets/StylisedProp3.png",
-                "assets/StylisedProp4.png",
-                "assets/StylisedProp5.png",
+                "assets/StylisedProp1.jpg",
+                "assets/StylisedProp2.jpg",
+                "assets/StylisedProp3.jpg",
+                "assets/StylisedProp4.jpg",
+                "assets/StylisedProp5.jpg",
                 "assets/StylisedProp6.jpg",
                 "assets/StylisedProp8.jpg",
-                "assets/StylisedProp9.png",
-                "assets/StylisedProp10.png",
-                "assets/StylisedProp11.png",
-                "assets/StylisedProp12.png"
+                "assets/StylisedProp9.jpg",
+                "assets/StylisedProp10.jpg",
+                "assets/StylisedProp11.jpg",
+                "assets/StylisedProp12.jpg"
             ],
 
             env: [
-                "assets/Environment1.png",
-                "assets/Environment2.png",
-                "assets/Environment3.png",
-                "assets/Environment4.mp4",
-                "assets/Environment5.png",
-                "assets/Environment6.png"
+                "assets/Environment1.jpg",
+                "assets/Environment2.jpg",
+                "assets/Environment3.jpg",
+                "assets/Environment4.webm",
+                "assets/Environment5.jpg",
+                "assets/Environment6.jpg"
             ]
         };
 
@@ -93,7 +93,7 @@
             const img = document.getElementById("overlayImage");
             const vid = document.getElementById("overlayVideo");
 
-            if (src.endsWith(".mp4")) {
+            if (src.endsWith(".webm")) {
                 img.style.display = "none";
                 vid.style.display = "block";
                 vid.src = src;

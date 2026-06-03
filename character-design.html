@@ -26,19 +26,19 @@
         <div class="gallery">
 
             <div class="card" onclick="openGallery('concept', 0)">
-                <img src="assets/Concept1.png" alt="">
+                <img src="assets/Concept1.jpg" alt="">
                 <p>Concept Artwork</p>
                 <p>£20 - £50</p>
             </div>
 
             <div class="card" onclick="openGallery('Sheets', 0)">
-                <img src="assets/Sheet1.png" alt="">
+                <img src="assets/Sheet1.jpg" alt="">
                 <p>Character Sheets</p>
                 <p>£50 - £150</p>
             </div>
 
             <div class="card" onclick="openGallery('Design', 0)">
-                <img src="assets/Design1.PNG" alt="">
+                <img src="assets/Design1.jpg" alt="">
                 <p>Character Design</p>
                 <p>£30 - £200</p>
             </div>
@@ -66,55 +66,55 @@
 
         const galleries = {
             concept: [
-                "assets/Concept1.png",
-                "assets/Concept2.png",
-                "assets/Concept3.png",
-                "assets/Concept4.png",
-                "assets/Concept5.png",
-                "assets/Concept6.png",
-                "assets/Concept7.png",
-                "assets/Concept8.png",
-                "assets/Concept9.png",
-                "assets/Concept10.PNG",
-                "assets/Concept11.PNG",
-                "assets/Concept12.PNG",
-                "assets/Concept13.PNG",
-                "assets/Concept14.png",
-                "assets/Concept15.PNG",
-                "assets/Concept16.png",
-                "assets/Concept17.png",
-                "assets/Concept18.PNG",
-                "assets/Concept19.PNG",
-                "assets/Concept20.png",
-                "assets/Concept21.PNG"
+                "assets/Concept1.jpg",
+                "assets/Concept2.jpg",
+                "assets/Concept3.jpg",
+                "assets/Concept4.jpg",
+                "assets/Concept5.jpg",
+                "assets/Concept6.jpg",
+                "assets/Concept7.jpg",
+                "assets/Concept8.jpg",
+                "assets/Concept9.jpg",
+                "assets/Concept10.jpg",
+                "assets/Concept11.jpg",
+                "assets/Concept12.jpg",
+                "assets/Concept13.jpg",
+                "assets/Concept14.jpg",
+                "assets/Concept15.jpg",
+                "assets/Concept16.jpg",
+                "assets/Concept17.jpg",
+                "assets/Concept18.jpg",
+                "assets/Concept19.jpg",
+                "assets/Concept20.jpg",
+                "assets/Concept21.jpg"
             ],
             Sheets: [
-                "assets/Sheet1.png",
-                "assets/Sheet2.PNG",
-                "assets/Sheet3.png",
-                "assets/Sheet4.PNG",
-                "assets/Sheet5.png",
-                "assets/Sheet6.PNG",
-                "assets/Sheet7.png",
-                "assets/Sheet8.PNG",
-                "assets/Sheet9.png",
-                "assets/Sheet10.png",
-                "assets/Sheet11.png",
-                "assets/Sheet12.png",
-                "assets/Sheet13.png",
-                "assets/Sheet14.png"
+                "assets/Sheet1.jpg",
+                "assets/Sheet2.jpg",
+                "assets/Sheet3.jpg",
+                "assets/Sheet4.jpg",
+                "assets/Sheet5.jpg",
+                "assets/Sheet6.jpg",
+                "assets/Sheet7.jpg",
+                "assets/Sheet8.jpg",
+                "assets/Sheet9.jpg",
+                "assets/Sheet10.jpg",
+                "assets/Sheet11.jpg",
+                "assets/Sheet12.jpg",
+                "assets/Sheet13.jpg",
+                "assets/Sheet14.jpg"
             ],
             Design: [
-                "assets/Design1.PNG",
-                "assets/Design2.png",
-                "assets/Design3.png",
-                "assets/Design4.png",
-                "assets/Design5.PNG",
-                "assets/Design6.PNG",
-                "assets/Design7.PNG",
-                "assets/Design8.PNG",
-                "assets/Design9.mp4",
-                "assets/Design10.mp4"
+                "assets/Design1.jpg",
+                "assets/Design2.jpg",
+                "assets/Design3.jpg",
+                "assets/Design4.jpg",
+                "assets/Design5.jpg",
+                "assets/Design6.jpg",
+                "assets/Design7.jpg",
+                "assets/Design8.jpg",
+                "assets/Design9.webm",
+                "assets/Design10.webm"
             ]
         };
 
@@ -128,7 +128,7 @@
             const img = document.getElementById("overlayImage");
             const vid = document.getElementById("overlayVideo");
 
-            if (src.endsWith(".mp4")) {
+            if (src.endsWith(".webm")) {
                 img.style.display = "none";
                 vid.style.display = "block";
                 vid.src = src;

@@ -26,19 +26,19 @@
         <div class="gallery">
 
             <div class="card" onclick="openGallery('ui', 0)">
-                <img src="assets/UI1.png" alt="">
+                <img src="assets/UI1.jpg" alt="">
                 <p>UI Designs</p>
                 <p>£50 - £100</p>
             </div>
 
             <div class="card" onclick="openGallery('promotionalart', 0)">
-                <img src="assets/PromotionalArt1.PNG" alt="">
+                <img src="assets/PromotionalArt1.jpg" alt="">
                 <p>Promotional Art</p>
                 <p>£30 - £50</p>
             </div>
 
             <div class="card" onclick="openGallery('Logo', 0)">
-                <img src="assets/Logo1.png" alt="">
+                <img src="assets/Logo1.jpg" alt="">
                 <p>Logo Designs</p>
                 <p>£20 - £50</p>
             </div>
@@ -66,34 +66,34 @@
 
         const galleries = {
             ui: [
-                "assets/UI1.png",
-                "assets/UI2.png",
-                "assets/UI3.PNG",
-                "assets/UI4.png",
-                "assets/UI5.png",
-                "assets/UI6.png",
-                "assets/UI7.png",
-                "assets/UI8.PNG",
-                "assets/UI9.png"
+                "assets/UI1.jpg",
+                "assets/UI2.jpg",
+                "assets/UI3.jpg",
+                "assets/UI4.jpg",
+                "assets/UI5.jpg",
+                "assets/UI6.jpg",
+                "assets/UI7.jpg",
+                "assets/UI8.jpg",
+                "assets/UI9.jpg"
             ],
             promotionalart: [
-                "assets/PromotionalArt1.PNG",
-                "assets/PromotionalArt2.PNG",
-                "assets/PromotionalArt3.png",
-                "assets/PromotionalArt4.PNG",
-                "assets/PromotionalArt5.PNG",
-                "assets/PromotionalArt6.PNG",
-                "assets/PromotionalArt7.PNG"
+                "assets/PromotionalArt1.jpg",
+                "assets/PromotionalArt2.jpg",
+                "assets/PromotionalArt3.jpg",
+                "assets/PromotionalArt4.jpg",
+                "assets/PromotionalArt5.jpg",
+                "assets/PromotionalArt6.jpg",
+                "assets/PromotionalArt7.jpg"
             ],
             Logo: [
-                "assets/Logo1.png",
-                "assets/Logo2.PNG",
-                "assets/Logo3.png",
-                "assets/Logo4.png",
-                "assets/Logo5.PNG",
-                "assets/Logo6.PNG",
-                "assets/Logo7.PNG",
-                "assets/Logo8.PNG"
+                "assets/Logo1.jpg",
+                "assets/Logo2.jpg",
+                "assets/Logo3.jpg",
+                "assets/Logo4.jpg",
+                "assets/Logo5.jpg",
+                "assets/Logo6.jpg",
+                "assets/Logo7.jpg",
+                "assets/Logo8.jpg"
             ]
         };
 
@@ -107,7 +107,7 @@
             const img = document.getElementById("overlayImage");
             const vid = document.getElementById("overlayVideo");
 
-            if (src.endsWith(".mp4")) {
+            if (src.endsWith(".webm")) {
                 img.style.display = "none";
                 vid.style.display = "block";
                 vid.src = src;

@@ -142,7 +142,7 @@ function loadPage(page) {
 // Preload all media so slides switch instantly
 function preloadGallery(gallery) {
     gallery.forEach(src => {
-        if (src.endsWith(".mp4")) {
+        if (src.endsWith(".webm")) {
             const video = document.createElement("video");
             video.src = src;
         } else {

@@ -1,15 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Services</title>
-
-    <!-- THIS MUST BE FIRST -->
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio.css">
 </head>
 
-<div class="page">
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+    <h2 class="logo">Dalia</h2>
+    <a href="about.html">About Me</a>
+    <a href="#char">Character Art</a>
+    <a href="#game">Game Projects</a>
+    <a href="#anim">Animation</a>
+    <a href="#models">3D Models</a>
+</nav>
+
+<div class="portfolio-wrapper">
 
     <header>
-        <p>IM STILL WORKING ON 
-            THIS PAGE LOL</p>
+        <h1 class="portfolio-title">My Portfolio...</h1>
+        <p class="portfolio-subtitle">My gallery of creative works</p>
     </header>
+
+    <!-- CHARACTER ART -->
+    <section id="char" class="portfolio-section">
+        <h2 class="section-title">Character Art</h2>
+        <div class="scroll-row">
+            <!-- Replace with your real files -->
+            <img src="assets/CharacterArt/char1.png" 
+            class="has-caption" 
+            data-caption="This is a character turnaround for…">
+            <img src="assets/CharacterArt/char2.png">
+            <video src="assets/CharacterArt/charVid.mp4" controls></video>
+        </div>
+    </section>
+
+    <!-- GAME PROJECTS -->
+    <section id="game" class="portfolio-section">
+        <h2 class="section-title">Game Projects</h2>
+        <div class="scroll-row">
+            <img src="assets/GameArt/game1.png">
+            <video src="assets/GameArt/gameVid.mp4" controls></video>
+        </div>
+    </section>
+
+    <!-- ANIMATION -->
+    <section id="anim" class="portfolio-section">
+        <h2 class="section-title">Animation</h2>
+        <div class="scroll-row">
+            <video src="assets/Animation/anim1.mp4" controls></video>
+            <video src="assets/Animation/anim2.mp4" controls></video>
+        </div>
+    </section>
+
+    <!-- 3D MODELS -->
+    <section id="models" class="portfolio-section">
+        <h2 class="section-title">3D Models</h2>
+        <div class="scroll-row">
+            <img src="assets/3D/3d1.png">
+            <video src="assets/3D/turntable.mp4" controls></video>
+        </div>
+    </section>
+
+</div>
+
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeModal" class="close-btn">×</span>
+
+            <img id="modalImage" class="modal-media">
+            <video id="modalVideo" class="modal-media" controls></video>
+
+            <p id="modalCaption" class="modal-caption"></p>
+        </div>
+    </div>
+
+</body>
+</html>

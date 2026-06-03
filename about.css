@@ -1,0 +1,173 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #fdf7f2;
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+}
+
+/* SIDEBAR (same as portfolio) */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #fffdf9;
+    border-right: 2px solid #ffe0ec;
+    padding: 30px 20px;
+    box-shadow: 4px 0 10px rgba(255,182,217,0.2);
+}
+
+.sidebar .logo {
+    font-family: 'Kalam', cursive;
+    font-size: 2rem;
+    color: #b77;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 12px 0;
+    text-decoration: none;
+    color: #b77;
+    font-family: 'Kalam', cursive;
+    font-size: 1.2rem;
+    transition: 0.2s ease;
+}
+
+.sidebar a:hover {
+    color: #ff8fc4;
+    transform: translateX(4px);
+}
+
+/* MAIN CONTENT */
+.about-wrapper {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 40px;
+}
+
+.about-card {
+    background: #fffdf9;
+    border: 2px solid #ffe0ec;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 4px 10px rgba(255,182,217,0.2);
+}
+
+.about-icon {
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-title {
+    font-family: 'Kalam', cursive;
+    font-size: 2.4rem;
+    color: #b77;
+    margin-bottom: 10px;
+}
+
+.about-desc {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-subheader {
+    font-family: 'Kalam', cursive;
+    font-size: 1.6rem;
+    color: #b77;
+    margin-top: 20px;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.skill-list li {
+    background: #ffeef7;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 6px;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        border-right: none;
+        border-bottom: 2px solid #ffe0ec;
+    }
+
+    .about-wrapper {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .about-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-icon {
+        margin: 0 auto;
+    }
+}
+
+.roger-sticker {
+    text-align: center;
+    margin-top: 80px;
+    position: relative;
+}
+
+.roger-img {
+    width: 160px;
+    max-width: 160px; /* prevents accidental scaling */
+    height: auto;
+    background: none;
+    padding: 0;
+    position: relative;
+    z-index: 5;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.18));
+    animation: rogerFloat 3s ease-in-out infinite;
+}
+
+.about-card {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; /* keeps icon + Roger aligned at the top */
+}
+
+.about-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers Roger under the icon */
+}
+
+.roger-label {
+    font-family: 'Kalam', cursive;
+    font-size: 1.1rem;
+    color: #b77;
+    margin-top: 6px;
+    opacity: 0.9;
+}
